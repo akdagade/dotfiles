@@ -14,7 +14,7 @@ set incsearch
 set relativenumber
 set scrolloff=8
 set signcolumn=yes
-
+set backspace=indent,eol,start
 
 " ### Plugin Manager ### "
 call plug#begin("~/.vim/autoload")
@@ -23,12 +23,12 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'vim-syntastic/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf'
 Plug 'burntsushi/ripgrep'
-Plug 'dense-analysis/ale'
+"Plug 'dense-analysis/ale'
+Plug 'ycm-core/YouCompleteMe'
 
 call plug#end()
 
@@ -37,9 +37,26 @@ colorscheme gruvbox
 nnoremap <SPACE> <Nop>
 let mapleader = ' '
 
+" Navigate windows
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
+
+" ALEConfig
+"let g:ale_linters = {'jsx': ['stylelint', 'eslint'],
+"			\ 'python': ['pylint']}
+
+" YouCompleteMeConfig
+nnoremap <silent> <leader>gd :YcmCompleter GoTo<CR>
+nnoremap <silent> <leader>gf :YcmCompleter FitIt<CR>
+
 " FZFConfig
-nnoremap <silent> <C-f> :GFiles<CR>
+nnoremap <silent> <Leader>g :GFiles<CR>
+nnoremap <silent> <Leader>F :Files<CR>
 nnoremap <silent> <Leader>f :Rg<CR>
+
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
 
 " NERDTreeConfig "
  
