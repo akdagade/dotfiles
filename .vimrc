@@ -13,7 +13,7 @@ set undofile
 set incsearch
 set relativenumber
 set scrolloff=8
-set signcolumn=auto
+set signcolumn=yes
 
 
 " ### Plugin Manager ### "
@@ -25,18 +25,27 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-syntastic/syntastic'
 Plug 'vim-airline/vim-airline'
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf'
+Plug 'burntsushi/ripgrep'
+Plug 'dense-analysis/ale'
 
 call plug#end()
 
 colorscheme gruvbox
 
+nnoremap <SPACE> <Nop>
+let mapleader = ' '
+
+" FZFConfig
+nnoremap <silent> <C-f> :GFiles<CR>
+nnoremap <silent> <Leader>f :Rg<CR>
 
 " NERDTreeConfig "
  
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
 
 " Start NERDTree and leave the cursor in it.
 autocmd VimEnter * NERDTree
