@@ -28,3 +28,4 @@ echo 'alias ll="ls -lrt"' >> /Users/$(whoami)/.zprofile
 echo 'alias la="ls -lart"' >> /Users/$(whoami)/.zprofile
 echo 'alias pro="cd /Users/$(whoami)/Documents/Projects"' >> /Users/$(whoami)/.zprofile
 
+# test
